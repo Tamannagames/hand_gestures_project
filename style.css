@@ -1,0 +1,47 @@
+body {
+    color: white;
+    background: #c0d3ff;
+  }
+  
+  span {
+    font-size: 30px;
+  }
+  
+  #camera, #captured-image {
+    border: 2px dashed black;
+    width: 350px;
+    height: 300px;
+    margin: 0 auto;
+  }
+  
+  .gesture-name, .gesture-icon {
+    color: black;
+  }
+  
+  .gesture-name {
+    font-size: 40px;
+  }
+  
+  .gesture-icon {
+    font-size: 48px;
+  }
+  
+  .heading {
+    font-size: 20px;
+    border-radius: 10px;
+    letter-spacing: 10px;
+  }
+  
+  .instruction {
+    font-size: 22px;
+    margin-top: 10px;
+  }
+  
+  .gesture-text {
+    color: #f39c12;
+  }
+  
+  .capture-btn, .identify-btn {
+    margin-top: 20px;
+  }
+  
