@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hand Gesture Recognition App</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
-    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script> 
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hand Gesture Recognition App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script> 
+  <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script> 
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 <body>
   <div class="container">
     <center>
       <h3 class="btn btn-warning heading">HAND GESTURE RECOGNITION
         <br>
-        <span>&#128076;</span>
-        <span>&#128077;</span>
+        <span>&#128070;</span>
+        <span>&#128071;</span>
         <span>&#9996;</span> 
       </h3>
       <br><br>
       <p class="instruction">Use hand gestures to interact:</p>
-      <p class="instruction"><b class="gesture-text">Take a selfie of a gesture to know it meaning </b></p>
+      <p class="instruction"><b class="gesture-text">Thumbs Up - Capture Image</b></p>
+      <p class="instruction"><b class="gesture-text">Peace Sign - Identify Gesture</b></p>
       <div class="col-md-4 col-sm-12 col-xs-12">
         <label>Webcam View</label>
         <div id="camera"></div>
         <br><br>
-        <button onclick="captureImage();" class="btn btn-warning capture-btn">Capture Image</button>
+        <button onclick="take_snapshot();" class="btn btn-warning capture-btn">Capture Image</button>
       </div>
       <div class="col-md-4 col-sm-12 col-xs-12">
         <label>Prediction</label>
         <p id="gesture-name" class="gesture-name"></p>
         <p id="gesture-icon" class="gesture-icon"></p>
+        <br>
+        <button onclick="identifyGesture();" class="btn btn-success identify-btn">Identify Gesture</button>
       </div>
       <div class="col-md-4 col-sm-12 col-xs-12">
         <label>Captured Image</label>
-        <div id="captured-image"></div>
-        <br><br>
-        <button onclick="identifyGesture();" class="btn btn-success identify-btn">Identify Gesture</button>
+        <div id="view"></div>
       </div>
     </center>
   </div>
