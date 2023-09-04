@@ -21,12 +21,37 @@ function modelLoaded() {
   console.log('Model Loaded');
 }
 
-function speak() {
-  var synth = window.speechSynthesis;
-  var speak_data_1 = "The first prediction is " + prediction1;
-  var speak_data_2 = "The second prediction is " + prediction2;
-  var utterThis = new SpeechSynthesisUtterance(speak_data_1 + speak_data_2);
-  synth.speak(utterThis);
+function identifyGesture() {
+  var captureImage = document.getElementById("capture");
+  classifier.classify(captureImage, gotResult);
 }
 
+function gotResult(error, results) {
+  if (error) {
+    console.error(error);
+    return;
+  }
+  console.log(results);
+  var gestureLabel = results[0].label;
+  var confidence = results[0].confidence;
 
+  document.getElementById("gesture-name").innerText = "Gesture: " + gestureLabel;
+  document.getElementById("gesture-confidence").innerText = "Confidence: " + confidence;
+
+  if (gestureLabel === "thumbs_up") {
+    speak("You made a thumbs up gesture.");
+   
+    document.getElementById("gesture-icon").innerHTML = "&#128077;";
+  } else if (gestureLabel === "peace_sign") {
+    speak("You made a peace sign gesture.");
+    document.getElementById("gesture-icon").innerHTML = "&#9996;";
+  } else {
+    speak("Gesture not recognized.");
+    document.getElementById("gesture-icon").innerHTML = "&#x1F645;";
+  }
+}
+
+function speak(text) {
+  var synth = window.speechSynthesis;
+  var utterThis = new SpeechSynthesisUtterance(text);
+  synth.speak(utterThis); }
